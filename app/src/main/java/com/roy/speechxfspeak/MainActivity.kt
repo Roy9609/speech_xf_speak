@@ -14,6 +14,6 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.main_activity)
-      var a =  PersonateTTS("x5_lingyuyan_flow")
+     // var a =  PersonateTTS("x5_lingyuyan_flow")
     }
 }

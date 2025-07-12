@@ -5,12 +5,12 @@ plugins {
 
 android {
     namespace = "com.roy.speechxfspeak"
-    compileSdk = 34
+    compileSdk = 33
 
     defaultConfig {
         applicationId = "com.roy.speechxfspeak"
-        minSdk = 24
-        targetSdk = 34
+        minSdk = 21
+        targetSdk = 33
         versionCode = 1
         versionName = "1.0"
 
@@ -44,4 +44,5 @@ dependencies {
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
     implementation(project(path = ":XfSpeak"))
+    implementation("androidx.constraintlayout:constraintlayout:1.1.3")
 }
