@@ -1,3 +1,4 @@
+~~~
 dependencyResolutionManagement { 
 		repositories {
 			mavenCentral()
@@ -9,3 +10,6 @@ dependencyResolutionManagement {
  dependencies {
 	        implementation 'com.github.Roy9609:speech_xf_speak:1.0.0'
 	}
+
+
+~~~
