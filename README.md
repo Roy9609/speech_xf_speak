@@ -1,14 +1,25 @@
 ~~~
-dependencyResolutionManagement { 
-		repositories {
-			mavenCentral()
-			maven { url 'https://jitpack.io' }
-		}
-	}
+dependencyResolutionManagement {
+    repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
+
+    repositories {
+        google()
+        mavenCentral()
+        maven {
+            url = uri("https://clife-devops-maven.pkg.coding.net/repository/public-repository/maven-snapshots/")
+            credentials {
+                username = System.getenv("CODING_USERNAME")
+                password = System.getenv("CODING_PASSWORD")
+            }
+        }
+    }
+
+
+}
 
 
  dependencies {
-	        implementation 'com.github.Roy9609:speech_xf_speak:1.0.0'
+	        implementation 'com.clife.speak:XfSpeakSdk:1.0.0'
 	}
 
 

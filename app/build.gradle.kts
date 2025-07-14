@@ -36,13 +36,15 @@ android {
 }
 
 dependencies {
-
+    implementation("com.clife.speak:XfSpeakSdk:1.0.0")
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)
     implementation(libs.material)
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
-    implementation(project(path = ":XfSpeak"))
+   // implementation(project(path = ":XfSpeak"))
     implementation("androidx.constraintlayout:constraintlayout:1.1.3")
+
+
 }

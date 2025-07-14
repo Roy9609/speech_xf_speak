@@ -3,6 +3,11 @@ plugins {
     alias(libs.plugins.kotlin.android)
 }
 
+
+extra.set("GROUP", "com.clife.speak")
+extra.set("MODULENAME", "XfSpeakSdk")
+extra.set("MODULEVERSION", "1.0.0")
+
 android {
     namespace = "com.roy.xfspeak"
     compileSdk = 33
@@ -13,6 +18,16 @@ android {
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
         consumerProguardFiles("consumer-rules.pro")
     }
+
+
+    android.libraryVariants.all { variant ->
+        variant.outputs.all { output ->
+            val baseName = "${extra["MODULENAME"]}-${extra["MODULEVERSION"]}"
+            val outputFile = output.outputFile
+            outputFile.renameTo(File(outputFile.parent, "xf_${baseName}.aar"))
+        }
+    }
+
 
     buildTypes {
         release {
@@ -53,4 +68,8 @@ dependencies {
     androidTestImplementation(libs.androidx.espresso.core)
 
     api(files("libs/SparkChain.aar"))
+}
+
+apply {
+    from("../publish.gradle")
 }

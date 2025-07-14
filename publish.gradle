@@ -1,0 +1,33 @@
+apply plugin: 'maven-publish'
+
+
+// 配置要上传的本地 AAR 文件
+def aarFile = file('libs/SparkChain.aar')
+
+publishing {
+    publications {
+        mavenAar(MavenPublication) {
+            // 直接指定 AAR 文件
+            groupId = project.GROUP
+            artifactId = project.MODULENAME
+            version = project.MODULEVERSION
+
+            // 添加 AAR 文件作为主要构件
+            artifact(aarFile) {
+                // 可选：设置文件扩展名（默认会自动检测）
+                extension 'aar'
+            }
+        }
+    }
+
+    repositories {
+        // coding
+          maven {
+              url 'https://clife-devops-maven.pkg.coding.net/repository/public-repository/maven-snapshots/'
+              credentials {
+                  username System.getenv('CODING_USERNAME')
+                  password System.getenv('CODING_PASSWORD')
+              }
+          }
+    }
+}
